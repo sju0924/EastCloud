@@ -1,0 +1,27 @@
+{
+  "name": "EastCloud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sju0924/EastCloud.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sju0924/EastCloud/issues"
+  },
+  "homepage": "https://github.com/sju0924/EastCloud#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "node": "^17.1.0",
+    "pg": "^8.7.1"
+  },
+  "devDependencies": {}
+}
