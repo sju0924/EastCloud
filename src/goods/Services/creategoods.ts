@@ -1,8 +1,8 @@
-const { Client } = require('pg');
+import { Client } from 'pg';
 
 const client = new Client({
     user : 'postgres',
-    host : 'localhost',
+    host : '127.0.0.1',
     database : 'eastcloud',
     password : 'shinonomelove',
     port : 5432,
@@ -10,18 +10,18 @@ const client = new Client({
 
 client.connect();
 
-exports.creategoods = async (req) =>{
+async function putgoods(req: any) {
 //name, GenreID, CharID,GoodsTypeID
-    const sql = "INSERT INTO goods (name, GenreID, CharID,TypeID) VALUES('"+req.body.name+"', "+req.body.GenreID+", "+req.body.CharID+","+req.body.GoodsTypeID+") RETURNING *;";
+    const sql: string = "INSERT INTO goods (name, GenreID, CharID,TypeID) VALUES('"+req.body.name+"', "+req.body.GenreID+", "+req.body.CharID+","+req.body.GoodsTypeID+") RETURNING *;";
     console.log(sql)
 
     try{
-        let result = await client.query(sql)
+        let result: any = await client.query(sql)
         console.log(result);
         return result;
     }
     catch(err){
-            const resMessage = {
+            const resMessage= {
                 statusCode: 400,
                 msg:'암것도안드림 ㅅㄱ'
             }
@@ -32,3 +32,5 @@ exports.creategoods = async (req) =>{
     
 
 }
+
+export{ putgoods }
