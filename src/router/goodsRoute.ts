@@ -1,11 +1,11 @@
 import express from 'express'
 import { creategoods, showgoods,showgoods_byid } from '../goods/Controller/goodsController';
 
-const router = express.Router();
+const goods_router = express.Router();
 
 
-router.get('', showgoods);
-router.get('/:id',showgoods_byid);
-router.post('',creategoods);
+goods_router.get('', showgoods);
+goods_router.get('/:id',showgoods_byid);
+goods_router.post('',creategoods);
 
-export { router }
+export { goods_router }
