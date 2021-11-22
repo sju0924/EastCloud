@@ -37,9 +37,9 @@ async function getAllgoods(){
     }
 }
 
-async function getOnegoods(req : any){
+async function getOnegoods(id:string){
     try{
-        const row = await client.query('SELECT *  from goods where id = '+req.param.id+';')
+        const row = await client.query('SELECT *  from goods where id = '+id+';')
         console.log(row.rows);
         return row.rows;
         

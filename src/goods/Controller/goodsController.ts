@@ -11,8 +11,9 @@ async function showgoods(req: any, res:any, next:any){
   };
 
  async function showgoods_byid(req :any, res: any, next:any) {
+  console.log(req)
     try {
-      let rows = await getOnegoods(req.param.id);
+      let rows = await getOnegoods(req.params.id);
       res.send(rows);
     } catch (err) {
         console.log(err);
@@ -21,7 +22,7 @@ async function showgoods(req: any, res:any, next:any){
   
   
 async function creategoods (req :any, res :any , next: any) {
-    console.log(req)
+    
     try {
       let rows = await putgoods(req);
       res.send(rows);
