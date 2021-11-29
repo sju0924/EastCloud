@@ -7,26 +7,6 @@ import connectRedis from 'connect-redis'
 import { redisClient } from '../util/redis';
 const auth_router = express.Router();
 
-var RedisStore = connectRedis(session);
-auth_router.use(express.json());
-auth_router.use(session({
-    store: new RedisStore({
-            client: redisClient,
-            host : 'localhost',
-            port: 6379,
-            prefix : "session:",
-            db : 0
-    
-    }),
-    secret: process.env.SECRET_CODE!,
-    cookie: { maxAge: 60 * 60 * 1000 },
-    resave: true,
-    saveUninitialized: false
-}));
-
-auth_router.use(passport.initialize()); 
-auth_router.use(passport.session());
-
 passport.serializeUser((user:any, done) => {
     done(null, user); // user객체가 deserializeUser로 전달됨.
   });
@@ -38,7 +18,7 @@ auth_router.get('/google', passport.authenticate('google', { scope: ['profile'] 
 auth_router.get('/google/callback', passport.authenticate('google', {
     failureRedirect: '/'}),
     (req:any,res:any)=>{
-        //console.log(req)
+        console.log(req)
         req.session.user = {
             id: req.user.id,
             name: req.user.displayName,
@@ -63,4 +43,4 @@ auth_router.get('/logout', function(req:any, res:any){
         res.redirect('/auth');
     }
 });
-export { auth_router}
+export default auth_router;

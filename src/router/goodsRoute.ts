@@ -8,4 +8,4 @@ goods_router.get('', showgoods);
 goods_router.get('/:id',showgoods_byid);
 goods_router.post('',creategoods);
 
-export { goods_router }
+export default goods_router;

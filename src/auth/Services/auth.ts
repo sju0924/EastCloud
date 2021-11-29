@@ -1,6 +1,5 @@
 import 'dotenv/config'
 import {google} from '../passport/googleStrategy';
-var JSON = require('JSON');
 google();
 
 function getAuth(req:any, res:any){
