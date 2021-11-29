@@ -1,13 +1,5 @@
-
-import {getAuth} from '../Services/auth'
-import express from 'express';
-import passport from 'passport';
+import {getAuth} from '../Services/auth';
 import {google} from '../passport/googleStrategy';
-//import set_session from '../../util/session'
-import session from 'express-session';
-import { redisClient } from '../../util/redis';
-import connectRedis from 'connect-redis'
-//import session from 'express-session';
 google();
 
 

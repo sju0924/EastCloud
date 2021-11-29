@@ -1,5 +1,3 @@
-import { config } from 'dotenv';
-config();
 import passport from 'passport'
 import { Strategy } from 'passport-google-oauth20';
 
