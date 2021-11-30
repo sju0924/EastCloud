@@ -2,14 +2,14 @@ import express from "express"
 import path from 'path'
 //import set_session from './util/session'
 import bodyParser from 'body-parser'
-import {goods_router} from './router/goodsRoute';
-import {auth_router} from './router/authRoute';
+import {goods_router} from './src/router/goodsRoute';
+import {auth_router} from './src/router/authRoute';
 
 const app = express();
 
 import session from 'express-session'
 import connectRedis from 'connect-redis'
-import { redisClient } from './util/redis';
+import { redisClient } from './src/util/redis';
 import passport from 'passport'
 
 var RedisStore = connectRedis(session);
