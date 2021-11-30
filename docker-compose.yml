@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+  eastcloud:
+    env_file: ./.env
+    build:
+      context: ./eastcloud
+    ports:
+      - "3000:3000"
+    depends_on:
+      - database
+    command: ["npm","start"] 
+
+  database:
+    image: postgres:latest
+    ports: 
+      - "4000:4000"
+    
+  
